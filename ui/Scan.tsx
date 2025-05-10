@@ -31,7 +31,7 @@ const Scan: React.FC<{
   return (
     <Button
       onPress={() => {
-        !isPermissionGranted ? requestPermission : router.push("/scanner");
+        !isPermissionGranted ? requestPermission() : router.push("/scanner");
       }}
     >
       <Icon icon={QR} />
