@@ -15,7 +15,15 @@
       "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "env": {
+        "AES_IV": "$AES_IV",
+        "AES_KEY": "$AES_KEY",
+        "API_ADMIN_URL": "$API_ADMIN_URL",
+        "API_DATA_URL": "$API_DATA_URL",
+        "KEY_TOKEN": "$KEY_TOKEN",
+        "TIMEZONE": "$TIMEZONE"
+      }
     }
   },
   "submit": {
