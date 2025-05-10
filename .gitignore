@@ -42,5 +42,5 @@ account_server.json
 GoogleService-Info.plist
 
 
-# env
-env.*
+# env/
+.env

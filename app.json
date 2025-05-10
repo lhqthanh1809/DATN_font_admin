@@ -4,7 +4,11 @@
     "slug": "nestify_admin",
     "version": "1.0.0",
     "orientation": "portrait",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "icon": "./assets/images/app-icon.png",
     "scheme": "nestify_admin",
     "userInterfaceStyle": "automatic",
@@ -19,8 +23,6 @@
       }
     },
     "android": {
-      "googleServicesFile": "./account_server.json",
-
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -29,8 +31,11 @@
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION",
-        "android.permission.ACCESS_FINE_LOCATION"
-      ]
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.thanh18092003.nestify_admin"
     },
     "web": {
       "bundler": "metro",
@@ -41,7 +46,6 @@
       "expo-location",
       "expo-router",
       "expo-notifications",
-      "@react-native-firebase/app",
       [
         "expo-splash-screen",
         {
@@ -75,12 +79,11 @@
       "typedRoutes": true
     },
     "extra": {
-      "AES_IV": "RpvfigpdYX7ErG1aaEesoA==",
-      "AES_KEY": "TO33cEhaTkoyJsM2O9npHEK92jLqLYvYVwc6yJ5491s=",
-      "KEY_TOKEN": "token_admin",
-      "TIMEZONE": "Asia/Ho_Chi_Minh",
       "router": {
         "origin": false
+      },
+      "eas": {
+        "projectId": "dfc59d03-b1aa-4006-964e-bcf34bcf6752"
       }
     }
   }
