@@ -97,10 +97,7 @@ export default class BaseService {
         }
         headers["Authorization"] = `Bearer ${token}`;
       }
-      console.log("headers: ", headers);
-      console.log("url: ", url);
-      console.log("body: ", body);
-      console.log("api: ", this._api);
+      console.log("📤 Sending request...");
       const response = await this._api.request({
         method,
         url,
@@ -117,6 +114,7 @@ export default class BaseService {
 
       return response.data;
     } catch (error) {
+      console.error("❌ Request failed:", error);
       return this.returnError(error);
     }
   }

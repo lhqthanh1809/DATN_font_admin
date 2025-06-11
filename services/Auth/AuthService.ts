@@ -17,7 +17,6 @@ export default class AuthService extends BaseService {
         body: data,
       });
 
-      console.log(res)
       if (res.hasOwnProperty("message")) {
         return res as IError;
       }
