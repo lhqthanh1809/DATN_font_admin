@@ -4,6 +4,7 @@ import {
   AppState,
   AppStateStatus,
   Image,
+  Platform,
   SafeAreaView,
   StatusBar,
   Text,
@@ -95,7 +96,11 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white-50">
+    <SafeAreaView className="flex-1 bg-white-50"       style={
+      Platform.OS === "android" && {
+        paddingTop: StatusBar.currentHeight,
+      }
+    }>
       <GeneralProvider>
         <UIProvider>
           <GestureHandlerRootView>
@@ -118,7 +123,7 @@ const Container = () => {
       }}
     >
       <View className="flex-1 bg-white-50 relative" ref={containerRef}>
-        <StatusBar barStyle="dark-content" translucent />
+        <StatusBar barStyle={"dark-content"} backgroundColor={"transparent"} />
         <Stack
           screenOptions={{
             headerShown: false,
