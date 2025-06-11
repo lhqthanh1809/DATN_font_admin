@@ -4,12 +4,8 @@
     "slug": "nestify_admin",
     "version": "1.0.0",
     "orientation": "portrait",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "icon": "./assets/images/app-icon.png",
+    "platforms": ["ios", "android", "web"],
+    "icon": "/assets/images/app-icon.png",
     "scheme": "nestify-admin",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -79,8 +75,8 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {
-        "origin": false
+      "eas": {
+        "projectId": "dfc59d03-b1aa-4006-964e-bcf34bcf6752"
       }
     }
   }

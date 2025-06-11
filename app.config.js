@@ -1,8 +1,6 @@
-require("dotenv").config();
-
 module.exports = {
   expo: {
-    "name": "Nestify_Admin",
+    "name": "Nestify Admin",
     "slug": "nestify_admin",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -84,12 +82,12 @@ module.exports = {
       eas: {
         projectId: "dfc59d03-b1aa-4006-964e-bcf34bcf6752",
       },
-      AES_IV: process.env.AES_IV,
-      AES_KEY: process.env.AES_KEY,
-      API_ADMIN_URL: process.env.API_ADMIN_URL,
-      API_DATA_URL: process.env.API_DATA_URL,
-      KEY_TOKEN: process.env.KEY_TOKEN,
-      TIMEZONE: process.env.TIMEZONE,
+      AES_IV: process.env.EXPO_PUBLIC_AES_IV,
+      AES_KEY: process.env.EXPO_PUBLIC_AES_KEY,
+      API_ADMIN_URL: process.env.EXPO_PUBLIC_API_ADMIN_URL,
+      API_DATA_URL: process.env.EXPO_PUBLIC_API_DATA_URL,
+      KEY_TOKEN: process.env.EXPO_PUBLIC_KEY_TOKEN,
+      TIMEZONE: process.env.EXPO_PUBLIC_TIMEZONE,
     },
   },
 };
