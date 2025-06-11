@@ -25,8 +25,8 @@ export default class BaseService {
         const errData = error.response?.data as IResponse;
         if (
           (error.response?.status === HttpStatusCode.Unauthorized ||
-            errData.errors?.[0]?.message === "Token has expired") &&
-          originalRequest.url != apiRouter.refreshToken
+            errData.errors?.[0]?.message === "Token has expired") 
+            // && originalRequest.url != apiRouter.refreshToken
         ) {
           
           originalRequest._retry = true;
@@ -105,6 +105,8 @@ export default class BaseService {
         cancelToken,
         headers,
       });
+
+      console.log("response: ", response);
 
       if ((response.data as any).status >= HttpStatusCode.BadRequest) {
         return this.getErrorResponse(response.data as IResponse);

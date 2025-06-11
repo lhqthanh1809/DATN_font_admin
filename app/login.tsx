@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { env, encrypt } from "@/helper/helper";
 import { LocalStorage } from "@/services/LocalStorageService";
 import { HttpStatusCode } from "axios";
-import { useRouter } from "expo-router";
+import { router, useRouter } from "expo-router";
 import UserService from "@/services/User/UserService";
 import { IError } from "@/interfaces/ErrorInterface";
 import useToastStore from "@/store/toast/useToastStore";
@@ -56,7 +56,7 @@ function LoginScreen() {
       if (token) {
         await new LocalStorage().setItem(env("KEY_TOKEN"), token);
         addToast(constant.toast.type.success, "Đăng nhập thành công!");
-        route.push("/");
+        router.replace("/dashboard");
       }
     } catch (err: any) {
       if (err instanceof Yup.ValidationError) {

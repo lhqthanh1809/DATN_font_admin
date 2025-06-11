@@ -13,7 +13,7 @@ interface ISidebarStore {
 
 export const useSidebarStore = create<ISidebarStore>((set) => ({
   sideBars: [
-    { icon: Overview, label: "Tổng quan", path: "/", isActive: false },
+    { icon: Overview, label: "Tổng quan", path: "/dashboard", isActive: false },
     { icon: Users, label: "Người dùng", path: "/user", isActive: true },
     {
       icon: Building,

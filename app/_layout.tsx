@@ -1,35 +1,22 @@
-import { Href, SplashScreen, Stack, usePathname, useRouter } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import "../global.css";
 import {
-  AppState,
-  AppStateStatus,
   Image,
   Platform,
   SafeAreaView,
   StatusBar,
-  Text,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useFonts } from "expo-font";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { env, getDeviceID, getJWTPayload } from "@/helper/helper";
-import { LocalStorage } from "@/services/LocalStorageService";
 import { GeneralProvider } from "@/providers/GeneralProvider";
 import { useGeneral } from "@/hooks/useGeneral";
-import UserService from "@/services/User/UserService";
+
 import { UIProvider } from "@/providers/UIProvider";
-import AuthService from "@/services/Auth/AuthService";
 
 export default function RootLayout() {
-  const [loading, setLoading] = useState(true);
-  const localStorage = new LocalStorage();
-  const route = useRouter();
-  const [page, setPage] = useState<Href | null>(null);
-  const pathName = usePathname();
-  const [hasHandledPush, setHasHandledPush] = useState(false);
-
   // Load fonts
   const [fontsLoaded] = useFonts({
     BeVietnamProBold: require("../assets/fonts/BeVietnamPro-Bold.ttf"),
@@ -40,50 +27,13 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    const navigateRouter = async () => {
-      try {
-        const token = await localStorage.getItem(env("KEY_TOKEN"));
-        if (!token) {
-          setPage("/login");
-          return;
-        }
-
-        const payload = getJWTPayload(token);
-
-        if (payload.exp < Date.now()) {
-          setPage("/");
-          return;
-        }
-
-        const data = await new AuthService().refreshToken();
-
-        if (!data || data.hasOwnProperty("message")) {
-          await localStorage.removeItem(env("KEY_TOKEN"));
-          setPage("/login");
-          return;
-        }
-        await localStorage.setItem(env("KEY_TOKEN"), data);
-        setPage("/");
-      } catch (error) {
-        setPage("/login");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    SplashScreen.preventAutoHideAsync();
-    navigateRouter();
-  }, []);
-
-  useEffect(() => {
-    if (!loading && fontsLoaded && page) {
-      route.replace(page);
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [loading, fontsLoaded, page]);
+  }, [fontsLoaded]);
 
   // Hiển thị màn hình chờ khi chưa load xong
-  if (!fontsLoaded || loading || !page) {
+  if (!fontsLoaded) {
     return (
       <View className="flex-1 bg-white-50 items-center justify-center gap-4">
         <Image
@@ -95,11 +45,14 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white-50"       style={
-      Platform.OS === "android" && {
-        paddingTop: StatusBar.currentHeight,
+    <SafeAreaView
+      className="flex-1 bg-white-50"
+      style={
+        Platform.OS === "android" && {
+          paddingTop: StatusBar.currentHeight,
+        }
       }
-    }>
+    >
       <GeneralProvider>
         <UIProvider>
           <GestureHandlerRootView>
