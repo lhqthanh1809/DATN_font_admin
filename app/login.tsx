@@ -13,6 +13,7 @@ import useToastStore from "@/store/toast/useToastStore";
 import { constant } from "@/assets/constant";
 import * as Yup from "yup";
 import AuthService from "@/services/Auth/AuthService";
+import { envData } from "@/assets/env";
 
 const schema = Yup.object().shape({
   email: Yup.string().email("Email không hợp lệ").required("Email là bắt buộc"),
@@ -35,6 +36,7 @@ function LoginScreen() {
   );
 
   const handleLogin = useCallback(async () => {
+    console.log("ENV AT RUNTIME:",envData);
     const fields = {
       email,
       password: encrypt(password),
