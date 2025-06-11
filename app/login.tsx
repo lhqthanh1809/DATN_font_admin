@@ -36,7 +36,6 @@ function LoginScreen() {
   );
 
   const handleLogin = useCallback(async () => {
-    console.log("ENV AT RUNTIME:",envData);
     const fields = {
       email,
       password: encrypt(password),

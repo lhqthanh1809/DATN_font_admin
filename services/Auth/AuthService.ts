@@ -8,6 +8,8 @@ export default class AuthService extends BaseService {
     email: string;
     password: string;
   }): Promise<string | IError> {
+    console.log("data: ", data);
+    console.log("apiRouter.loginUser: ", apiRouter.loginUser);
     try {
       const res: IResponse | IError = await this.https({
         url: apiRouter.loginUser,

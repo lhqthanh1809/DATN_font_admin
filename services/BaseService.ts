@@ -97,7 +97,10 @@ export default class BaseService {
         }
         headers["Authorization"] = `Bearer ${token}`;
       }
-
+      console.log("headers: ", headers);
+      console.log("url: ", url);
+      console.log("body: ", body);
+      console.log("api: ", this._api);
       const response = await this._api.request({
         method,
         url,
