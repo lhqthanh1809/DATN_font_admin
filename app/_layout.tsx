@@ -22,8 +22,10 @@ import UserService from "@/services/User/UserService";
 import { UIProvider } from "@/providers/UIProvider";
 import { IUser } from "@/interfaces/UserInterface";
 import AuthService from "@/services/Auth/AuthService";
+import Constants from "expo-constants";
 
 export default function RootLayout() {
+  console.log("ENV AT RUNTIME:", Constants.expoConfig?.extra);
   const [loading, setLoading] = useState(true);
   const localStorage = new LocalStorage();
   const route = useRouter();

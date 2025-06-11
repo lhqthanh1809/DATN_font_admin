@@ -1,5 +1,6 @@
 import Constants from "expo-constants";
 
+
 export const envData = {
   AES_IV: Constants.expoConfig?.extra?.AES_IV || "",
   AES_KEY: Constants.expoConfig?.extra?.AES_KEY || "",
