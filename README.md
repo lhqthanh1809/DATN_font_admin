@@ -1,50 +1,84 @@
-# Welcome to your Expo app 👋
+Here’s a revised README for your DATN Admin Panel project built with React Native:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Student Motel Management Admin Panel (React Native)
 
-## Get started
+## Introduction 📊
+Student Motel Management Admin Panel is a mobile application designed for managing the Student Motel Management Mobile app's backend, built with React Native. It provides administrators with tools to oversee user data, manage content, and monitor app performance.
 
-1. Install dependencies
+## Features ✨
+- User management.
+- Analytics dashboard for app performance
 
-   ```bash
-   npm install
-   ```
+## Prerequisites
+- Node.js (v14+ recommended)
+- npm or yarn
+- React Native development environment setup
+  - Android Studio (for Android)
+  - Xcode (for iOS)
+- [Any specific additional requirements]
 
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+## Installation 🛠️
 ```bash
-npm run reset-project
+# Clone the repository
+git clone https://github.com/lhqthanh1809/DATN_font_admin.git
+cd DATN_font_admin
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# For iOS (macOS only)
+cd ios && pod install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Running the App 🚀
+### Android
+```bash
+npx react-native run-android
+```
 
-## Learn more
+### iOS (macOS only)
+```bash
+npx react-native run-ios
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Configuration ⚙️
+Create a `.env` file in the root directory with required environment variables:
+```
+AES_IV=your_iv_here,
+AES_KEY=your_key_here,
+API_URL=your_api_url_here,
+KEY_TOKEN=your_key_token_here,
+APP_NOTI_ID=your_id_here,
+APP_NOTI_TOKEN=your_token_here
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Project Structure 📂
+```
+DATN_font_admin/
+├── android/          # Android native code
+├── ios/              # iOS native code
+├── src/
+│   ├── assets/       # App assets
+│   ├── ui/           # App UI
+│   ├── app/          # App screens
+│   ├── services/     # API/services
+│   └── utils/        # Utility functions
+└── ...               # Other config files
+```
 
-## Join the community
+## Build Instructions 📦
+### Android APK
+```bash
+cd android && ./gradlew assembleRelease
+```
 
-Join our community of developers creating universal apps.
+### iOS Archive
+Open `ios/YourAppName.xcworkspace` in Xcode and Archive.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Contributing 🤝
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+## License 📄
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
